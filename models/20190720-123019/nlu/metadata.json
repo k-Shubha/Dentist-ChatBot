@@ -1,0 +1,14 @@
+{
+    "language": "en",
+    "pipeline": [
+        {
+            "model": "en",
+            "case_sensitive": false,
+            "name": "SpacyNLP",
+            "class": "rasa.nlu.utils.spacy_utils.SpacyNLP"
+        }
+    ],
+    "training_data": "C:\\Users\\BRONTO~1\\AppData\\Local\\Temp\\tmp8etil4vo\\nlu\\training_data.json",
+    "trained_at": "20190720-123019",
+    "rasa_version": "1.1.4"
+}

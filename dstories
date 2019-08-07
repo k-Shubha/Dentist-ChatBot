@@ -1,0 +1,15 @@
+## Generated Story -2386008318366393680
+* greet
+    - utter_greet
+* book_apt
+    - utter_book_apt
+* confirm_visit
+    - utter_confirm_visit
+* confirm_first_time
+    - utter_confirm_first_time
+* confirm_fullname{"specialist": "utter_confirm_fullname"}
+* confirm_fullname
+    - utter_confirm_fullname
+* confirm_gender
+    - utter_confirm_gender
+    - export

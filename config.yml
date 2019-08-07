@@ -1,0 +1,9 @@
+language: en
+pipeline:
+- name: "CountVectorsFeaturizer"
+- name: "EmbeddingIntentClassifier"
+  model: "en"
+  case_sensitive: false
+policies:
+- name: KerasPolicy
+- name: FormPolicy

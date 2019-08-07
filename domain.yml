@@ -1,0 +1,196 @@
+intents:
+- request_details:
+    use_entities: []
+- ask_city
+- ask_date
+- ask_time
+- book_apt
+- bye
+- cancel_apt
+- confirm_appointment_for
+- confirm_contact_number
+- confirm_dr
+- confirm_follow_up
+- confirm_gender
+- confirm_insurance
+- confirm_ninsurance
+- confirm_visit
+- confirm_yinsurance
+- default
+- greet
+- ask_firstname
+- ask_lastname
+- mail
+- telnumber
+- reschedule_apt
+- sendaptmsg 
+
+
+entities:
+- FirstName
+- LastName
+- Mail
+- TelNumber
+
+slots:
+  Age:
+    type: unfeaturized
+    auto_fill: false
+  DOB:
+    type: unfeaturized
+    auto_fill: false
+  FirstName:
+    type: unfeaturized
+    auto_fill: false
+  Gender:
+    type: unfeaturized
+    auto_fill: false
+  LastName:
+    type: unfeaturized
+    auto_fill: false
+  Mail:
+    type: unfeaturized
+    auto_fill: false
+  TelNumber:
+    type: unfeaturized
+    auto_fill: false
+    
+templates:      
+  utter_greet:
+  - text: Hello, how can I help you?
+    buttons:
+    - title: Book an appointment
+      payload: /book_apt
+    - title: Cancel an appointment
+      payload: /cancel_apt
+    - title: Reschedule an appointment
+      payload: /reschedule_apt
+  utter_cancel_apt:
+  - text: Your appointment has been successfully cancelled.
+  utter_reschedule_apt:
+  - text: Your appointment has been successfully rescheduled.
+  utter_book_apt:
+  - text: Are you booking it for yourself?
+    buttons:
+    - title: 'true'
+      payload: /confirm_visit
+    - title: 'false'
+      payload: /confirm_visit
+  utter_confirm_visit:
+  - text: Are you visiting for the First Time, or is it a Follow-up?
+    buttons:
+    - title: First Time
+      payload: /ask_city
+    - title: Follow-up
+      payload: /confirm_follow_up
+  utter_confirm_follow_up:
+  - text: Got it. Let me take your information.Please enter your contact number.
+  utter_confirm_gender:
+  - text: What is  your gender?
+    buttons:
+    - title: Male
+      payload: /confirm_contact_number
+    - title: Female
+      payload: /confirm_contact_number
+  utter_confirm_contact_number:
+  - text: Please provide your contact number
+  utter_ask_city:
+  - text: In which city would you like to book appointment?
+    buttons:
+    - title: Hyderabad
+      payload: /confirm_appointment_for
+    - title: Banglore
+      payload: /confirm_appointment_for
+  utter_confirm_appointment_for:
+  - text: What are you looking for?
+    buttons:
+    - title: General Consultation
+      payload: /confirm_insurance
+    - title: Cleaning/Whitening
+      payload: /confirm_insurance
+    - title: Cavity/ToothAche
+      payload: /confirm_insurance
+  utter_confirm_insurance:
+  - text: Do you have an insurance?
+    buttons:
+    - title: 'true'
+      payload: /ask_date
+    - title: 'false'
+      payload: /ask_date
+  utter_confirm_yinsurance:
+  - text: Please provide your insurance ID
+  utter_confirm_ninsurance:
+  - text: Please complete the process of insurance filing
+  utter_default:
+  - text: Sorry I didn't follow that!
+  - text: I didn't get that!
+  utter_ask_date:
+  - text: When do you want to schedule this appointment?
+    buttons:
+    - title: Calendar
+      payload: /ask_time
+  utter_ask_time:
+  - text: please select the time?
+    buttons:
+    - title: 10AM-2PM
+      payload: /confirm_dr
+    - title: 3PM-7PM
+      payload: /confirm_dr
+  utter_confirm_dr:
+  - text: "Here i found similar results: \n Shall I confirm the appointment?"
+    buttons:
+    - title: 'true'
+      payload: '/ask_firstname'
+    - title: 'false'
+      payload: '/greet'
+  utter_ask_firstname:
+  - text: "Please enter your first name."
+  utter_ask_lastname:
+  - text: "Please enter your last name"
+  utter_mail:
+  - text: "Please enter your mail ID"
+  utter_telnumber:
+  - text: Please enter your contact number
+  utter_slots_values:
+  - text: "the following information will be sent,Click on send button:\n
+            - FirstName: {FirstName}\n
+            - LastName: {LastName}\n
+            - Mail: {Mail}\n
+            - TelNumber: {TelNumber}" 
+    buttons:
+    - title: 'Send'
+      payload: /sendaptmsg
+      
+  utter_bye:
+  - text: My pleasure to help you
+  - text: Bye Bye
+  - text: Bye.Have a great day
+  - text: Goodbye
+actions:
+- action_send_apt_msg
+- utter_slots_values
+- utter_ask_city
+- utter_ask_date
+- utter_ask_time
+- utter_book_apt
+- utter_bye
+- utter_cancel_apt
+- utter_confirm_appointment_for
+- utter_confirm_contact_number
+- utter_confirm_dr
+- utter_confirm_follow_up
+- utter_confirm_gender
+- utter_confirm_insurance
+- utter_confirm_ninsurance
+- utter_confirm_visit
+- utter_confirm_yinsurance
+- utter_default
+- utter_greet
+- utter_ask_firstname
+- utter_ask_lastname
+- utter_mail
+- utter_telnumber
+- utter_reschedule_apt
+
+forms:
+  - usr_form

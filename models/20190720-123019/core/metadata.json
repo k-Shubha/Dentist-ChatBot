@@ -1,0 +1,76 @@
+{
+  "action_fingerprints": {
+    "action_listen": {
+      "slots": []
+    },
+    "utter_default": {
+      "slots": []
+    },
+    "utter_confirm_ninsurance": {
+      "slots": []
+    },
+    "action_send_apt_msg": {
+      "slots": []
+    },
+    "utter_cancel_apt": {
+      "slots": []
+    },
+    "utter_book_apt": {
+      "slots": []
+    },
+    "utter_greet": {
+      "slots": []
+    },
+    "utter_confirm_appointment_for": {
+      "slots": []
+    },
+    "utter_bye": {
+      "slots": []
+    },
+    "utter_confirm_yinsurance": {
+      "slots": []
+    },
+    "utter_confirm_contact_number": {
+      "slots": []
+    },
+    "utter_confirm_gender": {
+      "slots": []
+    },
+    "utter_confirm_visit": {
+      "slots": []
+    },
+    "utter_confirm_dr": {
+      "slots": []
+    },
+    "utter_reschedule_apt": {
+      "slots": []
+    },
+    "utter_ask_city": {
+      "slots": []
+    },
+    "utter_confirm_insurance": {
+      "slots": []
+    },
+    "utter_confirm_follow_up": {
+      "slots": []
+    },
+    "utter_ask_time": {
+      "slots": []
+    },
+    "utter_ask_date": {
+      "slots": []
+    }
+  },
+  "python": "3.6.5",
+  "max_histories": [
+    5
+  ],
+  "ensemble_name": "rasa.core.policies.ensemble.SimplePolicyEnsemble",
+  "policy_names": [
+    "rasa.core.policies.keras_policy.KerasPolicy"
+  ],
+  "trained_at": "20190720-123015",
+  "rasa": "1.1.4",
+  "tensorflow": "1.13.1",
+  "sklearn": "0.20.3"
+}

@@ -1,0 +1,228 @@
+%YAML 1.1
+---
+actions:
+- action_send_apt_msg
+- utter_DOB
+- utter_Gender
+- utter_Mail
+- utter_TelNumber
+- utter_ask_FirstName
+- utter_ask_LastName
+- utter_ask_city
+- utter_ask_date
+- utter_ask_time
+- utter_book_apt
+- utter_bye
+- utter_cancel_apt
+- utter_confirm_appointment_for
+- utter_confirm_contact_number
+- utter_confirm_dr
+- utter_confirm_follow_up
+- utter_confirm_gender
+- utter_confirm_insurance
+- utter_confirm_ninsurance
+- utter_confirm_visit
+- utter_confirm_yinsurance
+- utter_default
+- utter_greet
+- utter_reschedule_apt
+config:
+  store_entities_as_slots: true
+entities:
+- appointment
+- dr
+- name
+- specialist
+forms: []
+intents:
+- ask_city:
+    ignore_entities: []
+    use_entities: true
+- ask_date:
+    ignore_entities: []
+    use_entities: true
+- ask_time:
+    ignore_entities: []
+    use_entities: true
+- book_apt:
+    ignore_entities: []
+    use_entities: true
+- bye:
+    ignore_entities: []
+    use_entities: true
+- cancel_apt:
+    ignore_entities: []
+    use_entities: true
+- confirm_appointment_for:
+    ignore_entities: []
+    use_entities: true
+- confirm_contact_number:
+    ignore_entities: []
+    use_entities: true
+- confirm_dr:
+    ignore_entities: []
+    use_entities: true
+- confirm_follow_up:
+    ignore_entities: []
+    use_entities: true
+- confirm_gender:
+    ignore_entities: []
+    use_entities: true
+- confirm_insurance:
+    ignore_entities: []
+    use_entities: true
+- confirm_ninsurance:
+    ignore_entities: []
+    use_entities: true
+- confirm_visit:
+    ignore_entities: []
+    use_entities: true
+- confirm_yinsurance:
+    ignore_entities: []
+    use_entities: true
+- default:
+    ignore_entities: []
+    use_entities: true
+- greet:
+    ignore_entities: []
+    use_entities: true
+- reschedule_apt:
+    ignore_entities: []
+    use_entities: true
+- sendaptmsg:
+    ignore_entities: []
+    use_entities: true
+slots:
+  Age:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+  DOB:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+  FirstName:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+  Gender:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+  LastName:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+  Mail:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+  TelNumber:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+templates:
+  utter_DOB:
+  - text: Please enter your Date of Birth
+  utter_Gender:
+  - text: What is your gender?
+  utter_Mail:
+  - text: Please enter your mail ID
+  utter_TelNumber:
+  - text: Please enter your contact number
+  utter_ask_FirstName:
+  - text: Please enter your first name
+  utter_ask_LastName:
+  - text: Please enter your last name
+  utter_ask_city:
+  - buttons:
+    - payload: /confirm_appointment_for
+      title: Hyderabad
+    - payload: /confirm_appointment_for
+      title: Banglore
+    text: In which city would you like to book appointment?
+  utter_ask_date:
+  - buttons:
+    - payload: /ask_time
+      title: Calendar
+    text: When do you want to schedule this appointment?
+  utter_ask_time:
+  - buttons:
+    - payload: /confirm_dr
+      title: 10AM-2PM
+    - payload: /confirm_dr
+      title: 3PM-7PM
+    text: please select the time?
+  utter_book_apt:
+  - buttons:
+    - payload: /confirm_visit
+      title: 'true'
+    - payload: /confirm_visit
+      title: 'false'
+    text: Are you booking it for yourself?
+  utter_bye:
+  - text: My pleasure to help you
+  - text: Bye Bye
+  - text: Bye.Have a great day
+  - text: Goodbye
+  utter_cancel_apt:
+  - text: Your appointment has been successfully cancelled.
+  utter_confirm_appointment_for:
+  - buttons:
+    - payload: /confirm_insurance
+      title: General Consultation
+    - payload: /confirm_insurance
+      title: Cleaning/Whitening
+    - payload: /confirm_insurance
+      title: Cavity/ToothAche
+    text: What are you looking for?
+  utter_confirm_contact_number:
+  - text: Please provide your contact number
+  utter_confirm_dr:
+  - buttons:
+    - payload: /sendaptmsg
+      title: 'true'
+    - payload: /greet
+      title: 'false'
+    text: "Here i found similar results: \n Shall I confirm the appointment?"
+  utter_confirm_follow_up:
+  - text: Got it. Let me take your information.Please enter your contact number.
+  utter_confirm_gender:
+  - buttons:
+    - payload: /confirm_contact_number
+      title: Male
+    - payload: /confirm_contact_number
+      title: Female
+    text: What is  your gender?
+  utter_confirm_insurance:
+  - buttons:
+    - payload: /ask_date
+      title: 'true'
+    - payload: /ask_date
+      title: 'false'
+    text: Do you have an insurance?
+  utter_confirm_ninsurance:
+  - text: Please complete the process of insurance filing
+  utter_confirm_visit:
+  - buttons:
+    - payload: /ask_city
+      title: First Time
+    - payload: /confirm_follow_up
+      title: Follow-up
+    text: Are you visiting for the First Time, or is it a Follow-up?
+  utter_confirm_yinsurance:
+  - text: Please provide your insurance ID
+  utter_default:
+  - text: Sorry I didn't follow that!
+  - text: I didn't get that!
+  utter_greet:
+  - buttons:
+    - payload: /book_apt
+      title: Book an appointment
+    - payload: /cancel_apt
+      title: Cancel an appointment
+    - payload: /reschedule_apt
+      title: Reschedule an appointment
+    text: Hello, how can I help you?
+  utter_reschedule_apt:
+  - text: Your appointment has been successfully rescheduled.
